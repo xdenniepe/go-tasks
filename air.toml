@@ -1,0 +1,24 @@
+# Set the root directory for the project
+root = "."
+
+# Define a temporary directory for storing files during the build process
+tmp_dir = "tmp"
+
+[build]
+    # Specify the name of the output binary file
+    bin = "main"
+    
+    # Command to build the Go project
+    # {{.Output}} is a placeholder for the output binary file
+    # {{.Input}} is a placeholder for the source files to be compiled
+    cmd = "go build -o {{.Output}} {{.Input}}"
+    
+    # Exclude specific directories or files from the build process
+    exclude = ["tmp/*", "client/*"]
+    
+    # Include only Go source files in the build process
+    include = ["**/*.go"]
+    
+    # Ignore files or directories during the build process, 
+    # useful for excluding temporary or unnecessary files
+    ignore = ["tmp/*"]
